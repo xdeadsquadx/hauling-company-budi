@@ -1,0 +1,61 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\KendaraanController;
+use App\Models\sparepart;
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::get('/', function () {
+    return view('dashboard');
+});
+
+
+
+Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
+Route::get('/kendaraan/tambah', [KendaraanController::class, 'create'])->name('kendaraan.create');
+Route::post('/kendaraan/tambah', [KendaraanController::class, 'store'])->name('kendaraan.store');
+Route::get('/kendaraan/{kendaraan}/edit', [KendaraanController::class, 'edit'])->name('kendaraan.edit');
+Route::put('/kendaraan/{kendaraan}', [KendaraanController::class, 'update'])->name('kendaraan.update');
+Route::delete('/kendaraan/{kendaraan}', [KendaraanController::class, 'destroy'])->name('kendaraan.destroy');
+
+
+Route::get('/tambah_kendaraan', function () {
+    return view('kendaraan/createKendaraan');
+})->name('kendaraan');
+
+Route::get('/jadwal', function () {
+    return view('operasional/jadwal');
+})->name('jadwal');
+
+Route::get('/kendaraan', [sparepartController::class, 'index'])->name('sparepart.index');
+Route::get('/sparepart/tambah', [sparepartController::class, 'create'])->name('sparepart.create');
+Route::post('/sparepart/tambah', [sparepartController::class, 'store'])->name('sparepart.store');
+Route::get('/sparepart/{sparepart}/edit', [sparepartController::class, 'edit'])->name('sparepart.edit');
+Route::put('/sparepart/{sparepart}', [sparepartController::class, 'update'])->name('sparepart.update');
+Route::delete('/sparepart/{sparepart}', [sparepartController::class, 'destroy'])->name('sparepart.destroy');
+
+Route::get('/maintenance', function () {
+    return view( 'kendaraan/maintenance');
+})->name('maintenance');
+
+
+Route::get('/surat_kendaraan', function () {
+    return view( 'kendaraan/suratKendaraan');
+})->name('suratKendaraan');
+
+
+Route::get('/pengemudi', function () {
+    return view( 'pengemudi/listPengemudi');
+})->name('listPengemudi');

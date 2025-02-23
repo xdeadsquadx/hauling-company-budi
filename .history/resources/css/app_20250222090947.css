@@ -1,0 +1,74 @@
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    display: flex;
+    height: 100vh;
+    background: #ffffff;
+    
+}
+.content{
+    padding: 10px;
+}
+.sidebar {
+    width: 250px;
+    background: #2c2c2c;
+    color: white;
+    padding-top: 10px;
+    height: auto;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+}
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.sidebar a {
+    color: white; /* Warna teks link */
+    text-decoration: none; /* Hilangin underline */
+}
+
+.sidebar a:hover {
+    color: #ff9800; /* Warna pas di-hover */
+}
+
+.sidebar ul li:hover {
+    background: #444;
+}
+.dropdown {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
+.dropdown li {
+    padding: 10px;
+    cursor: pointer;
+}
+.dropdown li:hover {
+    background: #555;
+}
+.edit-bar{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 5px 10px 0;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+.content h1 {
+    color: #333;
+}
